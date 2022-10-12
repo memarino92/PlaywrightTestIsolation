@@ -1,7 +1,11 @@
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using MvcApp.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.TryAddSingleton<ICodeWordService, CodeWordService>();
 
 var app = builder.Build();
 
